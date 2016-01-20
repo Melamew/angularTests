@@ -1,4 +1,4 @@
-﻿var app = angular.module('galleryApp', ['ngRoute'])
+var app = angular.module('galleryApp', ['ngRoute', 'ngAnimate'])
 
 .config(['$routeProvider', function ($routeProvider) {
     $routeProvider
