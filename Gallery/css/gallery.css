@@ -1,4 +1,4 @@
-﻿body {
+body {
     background: #666666;
     color: #FFFFFF;
     font-family: Arial, Sans;
@@ -14,12 +14,13 @@
 
 .navBtn {
     margin: 8px 0;
-    padding: 10px;
-    border-radius: 0;
+    padding: 2px 20px;
+    border-radius: 10px 0px;
     background: #333333;
     color: #ffffff;
     border-color: #888888;
-    width: 128px;
+    font-size: 1.5em;
+    float: left;
 }
 
 .viewContainer {
