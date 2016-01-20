@@ -1,0 +1,29 @@
+﻿body {
+    background: #666666;
+    color: #FFFFFF;
+    font-family: Arial, Sans;
+}
+
+.navBar {
+    padding: 4px;
+    border-top: 0;
+    border-color: WHITE;
+    margin: auto;
+    float: left;
+}
+
+.navBtn {
+    margin: 8px 0;
+    padding: 10px;
+    border-radius: 0;
+    background: #333333;
+    color: #ffffff;
+    border-color: #888888;
+    width: 128px;
+}
+
+.viewContainer {
+    margin: auto;
+    float: left;
+    padding: 5px;
+}
