@@ -1,24 +1,30 @@
 <!DOCTYPE html>
-<html ng-app="galleryApp">
-<head>
-    <title>Gallery Test</title>
-    <meta charset="utf-8"/>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
-    <link rel="stylesheet" type="text/css" href="css/gallery.css"/>
-    <script src="scripts/angular.js"></script>
-    <script src="scripts/angular-route.js"></script>
-    <script src="scripts/angular-animate.js"></script>
-    <script src="src/galleryApp.js"></script>
-    <script src="src/navbarController.js"></script>
-    <script src="src/picsController.js"></script>
-</head>
-<body>
-<div class="container-fluid navBar" ng-controller="navbarController">
-    <div ng-repeat="button in navPages" class="navBarBtnContainer">
-        <input type="button" class="button navBtn" ng-class="{active: button.Active}" ng-click="goTo(button)" value="{{button.Text}}"
-               onclick="this.blur()"/>
+<html ng-app="melsPlace">
+    <head>
+        <title>Melamew's Place</title>
+        <meta charset="utf-8"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+        <link rel="stylesheet" type="text/css" href="css/gallery.css"/>
+        <script src="scripts/angular.js"></script>
+        <script src="scripts/angular-route.js"></script>
+        <script src="scripts/angular-animate.js"></script>
+        <script src="scripts/ng-file-upload.js"></script>
+        <script src="src/melsPlace.js"></script>
+        <script src="src/config.js"></script>
+        <script src="src/locationService.js"></script>
+        <script src="src/navbarController.js"></script>
+        <script src="src/mainController.js"></script>
+        <script src="src/picsController.js"></script>
+    </head>
+    <body>
+    <div class="container-fluid navBar" ng-controller="navbarController">
+        <div ng-repeat="button in navPages" class="navBarBtnContainer">
+            <input type="button" class="button navBtn" ng-class="{active: button.Active}" ng-click="goTo(button)" value="{{button.Text}}"
+                   onclick="this.blur()"/>
+        </div>
     </div>
-</div>
-<div class="viewContainer container-fluid" data-ng-view ng-animate/>
-</body>
+        <div class="viewBackground">
+            <div class="viewContainer container-fluid" data-ng-view ng-animate/>
+        </div>
+    </body>
 </html>

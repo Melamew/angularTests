@@ -1,17 +1,25 @@
+html {
+    height: 100%;
+    width: 100%;
+}
+
 body {
-    background: #666666;
-    background-image: url(../img/background.jpg);
-    background-size: cover;
+    background-image: url(../img/background2_tile.jpg);
+    background-position: top;
+    background-size: auto;
+    background-repeat: repeat;
     color: #FFFFFF;
-    font-family: Arial, Sans;
+    font-family: "Courier New", Courier, monospace;
     padding: 0;
+    height: inherit;
 }
 
 .navBar {
     margin: 0 0 0 0;
     padding: 16px;
     background: rgba(128, 128, 128, 0.5);
-    border-radius: 5px
+    border-radius: 5px;
+    height: 6%
 }
 
 .navBarBtnContainer {
@@ -28,10 +36,11 @@ body {
     border: 0;
     border-color: #333333; 
     color: #FFFFFF;
-    font-size: 1.5em;
+    height=64px;
 }
 
 .button.navBtn {
+    font-size: 1.5em;
     transition-duration: 0.25s;
     transition-timing-function: ease-in-out;
 }
@@ -54,17 +63,23 @@ body {
 }
 
 .viewContainer {
-    margin: auto;
+    margin: 0;
+    padding: 0;
+}
+
+.viewBackground {
+    background: rgba(64,64,64,0.5);
+    height: 94%;
+    width: 100%;
     float: left;
-    display: inline-block;
-    padding: 5px;
-    margin: 0 16px;
+    margin: 0;
+    padding: 0 16px;
 }
 
 .viewContainer.ng-enter {
     transition-delay: 0.25s;
     transition-duration: 0.25s;
-    transition-timing-function: ease-in-out;
+    transition-timing-function: linear;
     opacity: 0;
 }
 
@@ -80,4 +95,33 @@ body {
 
 .viewContainer.ng-leave.ng-leave-active {
     opacity: 0;
+}
+
+.textBlock {
+    white-space: pre-line
+}
+
+.singleLineInput {
+    margin: 16px 0;
+    padding: 2px;
+    border-style: none;
+    background-color: rgba(64,64,64,0.5);
+    color: white;
+}
+
+.uploadForm {
+    float: left;
+    display: inline-block;
+}
+
+div.imageGrid {
+    float: left;
+    display: inline-block;
+}
+
+img.previewImage {
+    width: 10%;
+    height: 10%;
+    margin: 4px;
+    float: left;
 }
