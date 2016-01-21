@@ -13,8 +13,7 @@ app.config(['$routeProvider', function ($routeProvider) {
     
 }]);
 
-app.constant('config',
-            {
+app.constant('config', {
     siteName: "Mel's Place",
     imgServer: "localhost:8080",
 });

@@ -14,6 +14,10 @@ body {
     height: inherit;
 }
 
+div {
+    z-index: 0;
+}
+
 .navBar {
     margin: 0 0 0 0;
     padding: 16px;
@@ -62,18 +66,23 @@ body {
     background: #BBBBBB;
 }
 
-.viewContainer {
-    margin: 0;
-    padding: 0;
-}
-
 .viewBackground {
     background: rgba(64,64,64,0.5);
     height: 94%;
     width: 100%;
-    float: left;
     margin: 0;
-    padding: 0 16px;
+    padding: 0;
+}
+
+.viewContainer {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    height: 94%;
+    width: 100%;
+    display: inline;
 }
 
 .viewContainer.ng-enter {
@@ -102,8 +111,7 @@ body {
 }
 
 .singleLineInput {
-    margin: 16px 0;
-    padding: 2px;
+    margin: 0;
     border-style: none;
     background-color: rgba(64,64,64,0.5);
     color: white;
@@ -114,14 +122,10 @@ body {
     display: inline-block;
 }
 
-div.imageGrid {
-    float: left;
-    display: inline-block;
+.hidden {
+    visibility: collapse;
 }
 
-img.previewImage {
-    width: 10%;
-    height: 10%;
-    margin: 4px;
-    float: left;
+.visible {
+    visibility: visible;
 }

@@ -4,4 +4,6 @@ function ($scope, $location, LocationService) {
     $scope.goTo = function(page) {
         LocationService.goto(page);
     }
+    
+    
 }]);

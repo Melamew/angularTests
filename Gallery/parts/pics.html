@@ -1,18 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title></title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
-    <link rel="stylesheet" type="text/css" href="../css/gallery.css"/>
     <meta charset="utf-8" />
+    <link rel="stylesheet" href="../css/pics.css"/>
 </head>
 <body>
-    <div class="imageGrid">
-        <img ng-repeat="image in images" src="{{image.Path}}" class="previewImage"/>
+    <div ng-keydown="onKeyDown($event)"
+         tabindex="0"
+         class="mainView">
+        <div class="imageGrid">
+            <img ng-repeat="image in images" src="{{image.Path}}" class="previewImage"
+                 ng-click="displayImage(image)" />
+        </div>
+        <div class="uploadForm">
+            <input type="text" class="singleLineInput"/>
+            <input type="button" class="button" value="..." ng-click="openFile()">
+        </div>
     </div>
-    <div class="uploadForm">
-        <input type="text" class="singleLineInput"/>
-        <input type="button" class="button" value="..." ng-click="openFile()">
+    <div class="fullScreen" ng-class="{hidden: doDisplayImage == false || !shownImage, visibile: doDisplayImage == true}" ng-click="hideImage()" ng-animate>
+        <img src="{{shownImage.Path}}" class="fullScreen"  ng-click="hideImage()" />
     </div>
 </body>
 </html>
