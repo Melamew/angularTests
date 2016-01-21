@@ -1,0 +1,218 @@
+html {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    background-image: url(../img/background2_tile.jpg);
+    background-position: top;
+    background-size: auto;
+    background-repeat: repeat;
+    color: #FFFFFF;
+    font-family: "Courier New", Courier, monospace;
+    padding: 0;
+    height: inherit;
+}
+
+div {
+    z-index: 0;
+}
+
+div.mainView {
+    display: block;
+    width: 100%;
+    height: 100%;
+    outline: none;
+    padding: none;
+    padding: 8px 16px 0px 16px
+}
+
+.navBar {
+    margin: 0 0 0 0;
+    padding: 16px;
+    background: rgba(128, 128, 128, 0.5);
+    border-radius: 5px;
+    height: 6%
+}
+
+.navBarBtnContainer {
+    float: left;
+}
+
+.button,
+input[type="button"],
+input[type="submit"] {
+    cursor: default !important;
+    display: inline-block;
+    margin: 0 1px;
+    border-radius: 2px;
+    padding: 2px 20px;
+    background: #777777;
+    
+    border: 2px;
+    border-style: solid;
+    border-color: rgba(128, 128, 128, 0.1);
+    
+    color: #FFFFFF;
+    transition-duration: 0.25s;
+    transition-timing-function: ease-in-out;
+}
+
+.button.inline{
+    display: inline;
+}
+
+.button.navBtn {
+    font-size: 1.5em;
+}
+
+.button:hover,
+input[type="button"]:hover,
+input[type="submit"]:hover{
+    border: 2px;
+    border-style: solid;
+    border-color: rgba(128, 128, 128, 0.75);
+    transform: none;
+    background: #888888;
+}
+
+.button:focus,
+input[type="button"]:focus,
+input[type="submit"]:focus{
+    outline: none;
+}
+
+.button:active,
+input[type="button"]:active,
+input[type="submit"]:active {
+    background: #AAAAAA;
+}
+
+.navBtn.active {
+    background: #AAAAAA;
+}
+.navBtn.active:hover,
+.navBtn.active:focus {
+    outline: none;
+    background: #BBBBBB;
+}
+
+.viewBackground {
+    background: rgba(64,64,64,0.5);
+    height: 94%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.viewContainer {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    height: 94%;
+    width: 100%;
+    display: inline;
+}
+
+.viewContainer.ng-enter {
+    transition-delay: 0.25s;
+    transition-duration: 0.25s;
+    transition-timing-function: linear;
+    opacity: 0;
+}
+
+.viewContainer.ng-enter.ng-enter-active {
+    opacity: 1;
+}
+
+.viewContainer.ng-leave {
+    transition-duration: 0.25s;
+    transition-timing-function: ease-in-out;
+    opacity: 1;
+}
+
+.viewContainer.ng-leave.ng-leave-active {
+    opacity: 0;
+}
+
+.textBlock {
+    white-space: pre-line
+}
+
+input[type="text"]{
+    margin: 2px 0;
+    
+    border: 1px;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: rgba(255, 255, 255, 0.25);
+    
+    background-color: rgba(64,64,64,0.5);
+    color: white;
+}
+
+textarea {
+    margin: 2px 0;
+    
+    border: 1px;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: rgba(255, 255, 255, 0.25);
+    
+    width: 100%;
+    min-height: 10%;
+    background-color: rgba(64,64,64,0.5);
+    color:white;
+}
+
+input[type="text"].span {
+    width: 100%;
+}
+
+input[type="text"]:hover,
+textarea:hover {
+    outline: none;
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+input[type="text"]:active,
+input[type="text"]:focus,
+textarea:focus,
+textarea:active {
+    outline: none;
+    border-color: rgba(255, 255, 255, 0.66);
+}
+
+.hidden {
+    visibility: collapse;
+}
+
+.visible {
+    visibility: visible;
+}
+
+div.centered {
+    margin: 0 auto;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+label {
+    margin: 0 4px;
+    vertical-align: top;
+}
+
+td.alignTop{
+    vertical-align: top;
+}
+
+.fileLoader {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    z-index: -1;
+}

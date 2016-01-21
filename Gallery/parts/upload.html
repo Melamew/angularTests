@@ -1,0 +1,35 @@
+<DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    <div class="mainView">
+        <div>
+            <form>
+                <table>
+                    <tr>
+                        <td>Name:</td>
+                        <td><input type="text" ng-model="name" class="span"/></td>
+                    </tr>
+                    <tr>
+                        <td class="alignTop">Description:</td>
+                        <td><textarea ng-model="description"></textarea></td>
+                    </tr>
+                    <tr>
+                        <td>Image:</td>
+                        <td>
+                            <div>
+                                <input name="fileInput" class="fileLoader" type="file" fileread="image"/>
+                                <label for="fileInput">...</label>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <br/>
+                <input type="button" value="Cancel" ng-click="cancel()"/>
+                <input type="submit" value="Upload" ng-click="upload()"/>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

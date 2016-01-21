@@ -1,5 +1,5 @@
-app.controller('picsController', ['$scope', '$http', function($scope, $http) {
-    $scope.images = [ { Path: 'uploaded/background.jpg'}, { Path: 'uploaded/IMG_0715.jpg'} ]
+app.controller('picsController', ['$scope', '$http', 'LocationService', function($scope, $http, LocationService) {
+    $scope.images = [ { Path: 'uploaded/background.jpg'}, { Path: 'uploaded/IMG_0703.jpg'} ]
     
     $scope.shownImage;
     
@@ -20,6 +20,10 @@ app.controller('picsController', ['$scope', '$http', function($scope, $http) {
     
     $scope.onKeyDown = function($event) {
         if (27 == $event.keyCode) $scope.hideImage();
+    }
+    
+    $scope.upload = function(){
+        LocationService.goto("/pics/upload");
     }
     
 }]);

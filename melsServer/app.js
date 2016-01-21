@@ -9,7 +9,7 @@ var server;
 setupSite = function(db){
 
     app.put("/image", function(request, response){
-        
+
     });
 
     app.get("/listImages", function (request, response){

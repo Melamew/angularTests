@@ -12,9 +12,8 @@
             <img ng-repeat="image in images" src="{{image.Path}}" class="previewImage"
                  ng-click="displayImage(image)" />
         </div>
-        <div class="uploadForm">
-            <input type="text" class="singleLineInput"/>
-            <input type="button" class="button" value="..." ng-click="openFile()">
+        <div class="controls">
+            <input type="button" class="button" value="Upload" ng-click="upload()">
         </div>
     </div>
     <div class="fullScreen" ng-class="{hidden: doDisplayImage == false || !shownImage, visibile: doDisplayImage == true}" ng-click="hideImage()" ng-animate>
