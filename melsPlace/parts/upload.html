@@ -1,26 +1,30 @@
 <DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" href="css/upload.css"/>
 </head>
 <body>
     <div class="mainView">
-        <div>
+        <div class="uploadForm">
             <form>
-                <table>
+                <table class="form">
                     <tr>
-                        <td>Name:</td>
-                        <td><input type="text" ng-model="name" class="span"/></td>
+                        <td class="alignTop label">Name:</td>
+                        <td class="input"><input type="text" ng-model="name" class="span"/></td>
                     </tr>
                     <tr>
-                        <td class="alignTop">Description:</td>
-                        <td><textarea ng-model="description"></textarea></td>
+                        <td class="alignTop label">Description:</td>
+                        <td class="input"><textarea ng-model="description"></textarea></td>
                     </tr>
                     <tr>
-                        <td>Image:</td>
-                        <td>
-                            <div>
-                                <input name="fileInput" class="fileLoader" type="file" fileread="image"/>
-                                <label for="fileInput">...</label>
+                        <td class="alignTop label">Image:</td>
+                        <td class="input">
+                            <div class="relative button fileSelectorButton">
+                                <div ng-hide="!fileName" class="truncate">{{fileName}}</div>
+                                <div ng-hide="fileName">...</div>
+                                <input class="fileInput" type="file" 
+                                    mp-upload
+                                       mp-filename="fileName"/>
                             </div>
                         </td>
                     </tr>

@@ -1,0 +1,17 @@
+.fileSelectorButton {
+    max-width: 50%
+}
+
+td.label {
+    width: 100%;
+}
+
+td.input {
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+table.form {
+    width: 40%;
+}
