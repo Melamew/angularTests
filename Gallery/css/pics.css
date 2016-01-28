@@ -8,7 +8,7 @@ div.imageGrid {
 
 img.previewImage {
     width: auto;
-    height: 10%;
+    height: 20%;
     margin: 8px;
     float: left;
     image-resolution: snap;

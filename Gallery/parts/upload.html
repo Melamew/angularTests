@@ -18,16 +18,21 @@
                     <tr>
                         <td>Image:</td>
                         <td>
-                            <div>
-                                <input name="fileInput" class="fileLoader" type="file" fileread="image"/>
-                                <label for="fileInput">...</label>
+                            <div class="button">
+                                <span ng-class="{hidden: canUpload, visible: !canUpload}">...</span>
+                                <span ng-class="{visible: canUpload, hidden: !canUpload}">{{fileName}}</span>
+                                <input type="file"
+                                       accept="image/*"
+                                       gallery-file="file"
+                                       file-name="fileName"
+                                       file-selected="fileSelected()"/>
                             </div>
                         </td>
                     </tr>
                 </table>
                 <br/>
                 <input type="button" value="Cancel" ng-click="cancel()"/>
-                <input type="submit" value="Upload" ng-click="upload()"/>
+                <input type="submit" value="Upload" ng-click="upload()" ng-disabled="!canUpload"/>
             </form>
         </div>
     </div>

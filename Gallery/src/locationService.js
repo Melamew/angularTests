@@ -1,4 +1,4 @@
-app.factory('LocationService', ['$location', '$rootScope', function($location, $rootScope) {
+app.factory('LocationService', ['$location', '$rootScope', '$window', function($location, $rootScope, $window) {
     var service =
     {
         pages: [
@@ -39,6 +39,10 @@ app.factory('LocationService', ['$location', '$rootScope', function($location, $
         
         getPages: function(){
             return service.pages;  
+        },
+        
+        goBack: function() {
+            $window.history.back();
         }
     }
     

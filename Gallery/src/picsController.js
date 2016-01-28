@@ -1,5 +1,11 @@
-app.controller('picsController', ['$scope', '$http', 'LocationService', function($scope, $http, LocationService) {
-    $scope.images = [ { Path: 'uploaded/background.jpg'}, { Path: 'uploaded/IMG_0703.jpg'} ]
+app.controller('picsController', ['$scope', '$http', 'LocationService', 'CONFIG', function($scope, $http, LocationService, CONFIG) {
+    $scope.images;
+    
+    $http({
+        method: "GET",
+        url: "http://" + CONFIG.imgServer + "/listImages",
+    })
+    .success(function(data){ $scope.images = data; });
     
     $scope.shownImage;
     

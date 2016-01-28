@@ -13,27 +13,9 @@ app.config(['$routeProvider', function ($routeProvider) {
         templateUrl: 'parts/upload.html'
     })
     .otherwise({ redirectTo: '/' });
-    
-    
 }]);
 
-app.constant('config', {
+app.constant('CONFIG', {
     siteName: "Mel's Place",
-    imgServer: "localhost:8080",
+    imgServer: "127.0.0.1:8081",
 });
-
-app.directive("fileread", [function () {
-    return {
-        restrict: "A",
-        scope: {
-            fileread: "="
-        },
-        link: function (scope, element, attributes) {
-            element.bind("change", function (changeEvent) {
-                scope.$apply(function () {
-                    scope.fileread = changeEvent.target.files;
-                });
-            });
-        }
-    }
-}]);

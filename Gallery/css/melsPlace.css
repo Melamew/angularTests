@@ -73,7 +73,7 @@ input[type="submit"]:hover{
     border-style: solid;
     border-color: rgba(128, 128, 128, 0.75);
     transform: none;
-    background: #888888;
+    background: #999999;
 }
 
 .button:focus,
@@ -85,6 +85,13 @@ input[type="submit"]:focus{
 .button:active,
 input[type="button"]:active,
 input[type="submit"]:active {
+    background: #AAAAAA;
+}
+
+.button:disabled,
+input[type="button"]:disabled,
+input[type="submit"]:disabled {
+    color: rgba(92, 92, 92, 1);
     background: #AAAAAA;
 }
 
@@ -143,7 +150,7 @@ input[type="submit"]:active {
 
 input[type="text"]{
     margin: 2px 0;
-    
+    padding: 0 4px;
     border: 1px;
     border-radius: 5px;
     border-style: solid;
@@ -153,9 +160,28 @@ input[type="text"]{
     color: white;
 }
 
+div.button {
+    position: relative;
+}
+
+div.button input {
+    display: block;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    opacity: 0 !important;
+    overflow: hidden !important;
+}
+
+div.button span {
+    position: absolute;
+    margin: 0 4px;
+    z-index: 1;
+}
+
 textarea {
     margin: 2px 0;
-    
+    padding: 0 4px;
     border: 1px;
     border-radius: 5px;
     border-style: solid;
