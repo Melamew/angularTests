@@ -1,0 +1,39 @@
+<DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="css/upload.css"/>
+</head>
+<body>
+    <div class="mainView">
+        <div class="uploadForm">
+            <form>
+                <table class="form">
+                    <tr>
+                        <td class="alignTop label">Name:</td>
+                        <td class="input"><input type="text" ng-model="name" class="span"/></td>
+                    </tr>
+                    <tr>
+                        <td class="alignTop label">Description:</td>
+                        <td class="input"><textarea ng-model="description"></textarea></td>
+                    </tr>
+                    <tr>
+                        <td class="alignTop label">Image:</td>
+                        <td class="input">
+                            <div class="relative button fileSelectorButton">
+                                <div ng-hide="!fileName" class="truncate">{{fileName}}</div>
+                                <div ng-hide="fileName">...</div>
+                                <input class="fileInput" type="file" 
+                                    mp-upload
+                                       mp-filename="fileName"/>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <br/>
+                <input type="button" value="Cancel" ng-click="cancel()"/>
+                <input type="submit" value="Upload" ng-click="upload()"/>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

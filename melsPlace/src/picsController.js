@@ -7,7 +7,7 @@ app.controller('picsController', ['$scope', '$http', 'LocationService', 'CONFIG'
     })
     .success(function(data){ $scope.images = data; });
     
-    $scope.shownImage;
+    $scope.shownImage = { Path: '' };
     
     $scope.doDisplayImage = false;
     

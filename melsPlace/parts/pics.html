@@ -19,7 +19,7 @@
         </div>
     </div>
     <div class="fullScreen" ng-class="{hidden: doDisplayImage == false || !shownImage, visibile: doDisplayImage == true}" ng-click="hideImage()" ng-animate>
-        <img src="{{shownImage.Path}}" class="fullScreen"  ng-click="hideImage()" />
+        <img ng-class="{hidden: doDisplayImage == false || !shownImage, visibile: doDisplayImage == true}" ng-src="{{shownImage.Path}}" class="fullScreen"  ng-click="hideImage()" />
     </div>
 </body>
 </html>
