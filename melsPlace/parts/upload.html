@@ -1,37 +1,38 @@
 <DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="css/upload.css"/>
 </head>
 <body>
     <div class="mainView">
-        <div class="uploadForm">
+        <div>
             <form>
-                <table class="form">
+                <table>
                     <tr>
-                        <td class="alignTop label">Name:</td>
-                        <td class="input"><input type="text" ng-model="name" class="span"/></td>
+                        <td>Name:</td>
+                        <td><input type="text" ng-model="name" class="span"/></td>
                     </tr>
                     <tr>
-                        <td class="alignTop label">Description:</td>
-                        <td class="input"><textarea ng-model="description"></textarea></td>
+                        <td class="alignTop">Description:</td>
+                        <td><textarea ng-model="description"></textarea></td>
                     </tr>
                     <tr>
-                        <td class="alignTop label">Image:</td>
-                        <td class="input">
-                            <div class="relative button fileSelectorButton">
-                                <div ng-hide="!fileName" class="truncate">{{fileName}}</div>
-                                <div ng-hide="fileName">...</div>
-                                <input class="fileInput" type="file" 
-                                    mp-upload
-                                       mp-filename="fileName"/>
+                        <td>Image:</td>
+                        <td>
+                            <div class="button">
+                                <span ng-class="{hidden: canUpload, visible: !canUpload}">...</span>
+                                <span ng-class="{visible: canUpload, hidden: !canUpload}">{{fileName}}</span>
+                                <input type="file"
+                                       accept="image/*"
+                                       gallery-file="file"
+                                       file-name="fileName"
+                                       file-selected="fileSelected()"/>
                             </div>
                         </td>
                     </tr>
                 </table>
                 <br/>
                 <input type="button" value="Cancel" ng-click="cancel()"/>
-                <input type="submit" value="Upload" ng-click="upload()"/>
+                <input type="submit" value="Upload" ng-click="upload()" ng-disabled="!canUpload"/>
             </form>
         </div>
     </div>
