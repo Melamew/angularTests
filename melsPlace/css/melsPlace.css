@@ -240,8 +240,8 @@ div.relative {
 }
 
 .truncate {
-    max-width: inherit;
-    max-height: 2em;
+    position: relative;
+    max-width: 90%;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
