@@ -245,6 +245,8 @@ div.relative {
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
+    float: left;
+    margin: auto;
 }
 
 .fileInput {
