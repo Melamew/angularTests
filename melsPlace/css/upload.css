@@ -6,11 +6,6 @@ td.label {
     width: 100%;
 }
 
-.uploadLabel {
-    z-index: -1;
-    pointer-events: none;
-}
-
 td.input {
     width: 100%;
     top: 0;

@@ -1,8 +1,0 @@
-*.dll
-*.suo
-*.pdb
-*.obj
-*.user
-bin/
-obj/
-packages/
