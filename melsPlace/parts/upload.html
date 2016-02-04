@@ -20,7 +20,7 @@
                         <td>
                             <div class="button">
                                 <span ng-class="{hidden: canUpload, visible: !canUpload}">...</span>
-                                <span ng-class="{visible: canUpload, hidden: !canUpload}">{{fileName}}</span>
+                                <span ng-class="{visible: canUpload, hidden: !canUpload}" class="truncate">{{fileName}}</span>
                                 <input type="file"
                                        accept="image/*"
                                        gallery-file="file"
