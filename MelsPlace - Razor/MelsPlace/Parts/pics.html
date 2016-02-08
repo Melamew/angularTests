@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/pics.css"/>
+</head>
+<body>
+    <div ng-keydown="onKeyDown($event)"
+         tabindex="0"
+         class="mainView">
+        <div class="imageGrid">
+            <div ng-repeat="image in images">
+                <img src="{{image.Path}}" class="previewImage"
+                     ng-click="displayImage(image)" />
+            </div>
+        </div>
+        <div class="controls">
+            <input type="button" class="button" value="Upload" ng-click="upload()">
+        </div>
+    </div>
+    <div class="fullScreen" ng-class="{hidden: doDisplayImage == false || !shownImage, visibile: doDisplayImage == true}" ng-click="hideImage()" ng-animate>
+        <img ng-class="{hidden: doDisplayImage == false || !shownImage, visibile: doDisplayImage == true}" ng-src="{{shownImage.Path}}" class="fullScreen"  ng-click="hideImage()" />
+    </div>
+</body>
+</html>

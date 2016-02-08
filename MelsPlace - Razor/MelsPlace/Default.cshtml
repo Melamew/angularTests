@@ -1,4 +1,14 @@
 ﻿@{
-    Layout = "~/Layout.cshtml";
+    Layout = "~/_SiteLayout.cshtml";
     Page.Title = "Home Page";
 }
+
+<div class="container-fluid navBar" ng-controller="navbarController">
+    <div ng-repeat="button in navPages" class="navBarBtnContainer">
+        <input type="button" class="button navBtn" ng-class="{active: button.Active}" ng-click="goTo(button)" value="{{button.Text}}"
+               onclick="this.blur()" />
+    </div>
+</div>
+<div class="viewBackground">
+    <div class="viewContainer" ng-view ng-animate />
+</div>
