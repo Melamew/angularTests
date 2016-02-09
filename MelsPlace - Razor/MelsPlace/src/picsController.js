@@ -1,14 +1,21 @@
 app.controller("picsController", [
     "$scope", "$http", "LocationService", "CONFIG", function($scope, $http, LocationService, CONFIG) {
-        $scope.images = [{}];
-
+        var apiPath = "http://" + CONFIG.imgServer + "/api/Images";
+        
         $http({
                 method: "GET",
-                url: "http://" + CONFIG.imgServer + "/api/Images"
+                url: apiPath
             })
-            .success(function(data) { $scope.images = data; });
+            .success(function(data) {
+                $scope.images = data;
+                $scope.images.forEach(function (img, n) {
+                    $http.get(apiPath + "/" + n)
+                    .success(function (image) { $scope.images[n].Data = image.Data })
+                    .error(function (error) { });
+                });
+            });
 
-        $scope.shownImage = { Path: "" };
+        $scope.shownImage = { Data: "" };
 
         $scope.doDisplayImage = false;
 
@@ -24,9 +31,11 @@ app.controller("picsController", [
             $scope.shownImage = undefined;
             console.log("Hide image");
         };
+
         $scope.onKeyDown = function($event) {
             if (27 === $event.keyCode) $scope.hideImage();
         };
+
         $scope.upload = function() {
             LocationService.goto("/pics/upload");
         };

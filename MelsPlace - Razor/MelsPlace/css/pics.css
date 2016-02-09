@@ -4,14 +4,13 @@ div.imageGrid {
     min-height: 10%;
     height: 70%;
     width: 100%;
+    position: relative;
 }
 
 img.previewImage {
-    width: auto;
-    height: 20%;
+    width: 10%;
+    height: auto;
     margin: 8px;
-    float: left;
-    image-resolution: snap;
     cursor: zoom-in;
 }
 
@@ -22,6 +21,7 @@ div.fullScreen {
     position: absolute;
     top: 0;
     left: 0;
+    background: #FFFFFF;
     background: rgba(0,0,0,0.25);
 }
 

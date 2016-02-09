@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -10,7 +10,7 @@
          class="mainView">
         <div class="imageGrid">
             <div ng-repeat="image in images">
-                <img src="{{image.Path}}" class="previewImage"
+                <img src="{{image.Data}}" class="previewImage"
                      ng-click="displayImage(image)" />
             </div>
         </div>
@@ -19,7 +19,7 @@
         </div>
     </div>
     <div class="fullScreen" ng-class="{hidden: doDisplayImage == false || !shownImage, visibile: doDisplayImage == true}" ng-click="hideImage()" ng-animate>
-        <img ng-class="{hidden: doDisplayImage == false || !shownImage, visibile: doDisplayImage == true}" ng-src="{{shownImage.Path}}" class="fullScreen"  ng-click="hideImage()" />
+        <img ng-class="{hidden: doDisplayImage == false || !shownImage, visibile: doDisplayImage == true}" ng-src="{{shownImage.Data}}" class="fullScreen"  ng-click="hideImage()" />
     </div>
 </body>
 </html>

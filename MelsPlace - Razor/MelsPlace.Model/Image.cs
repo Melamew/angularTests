@@ -16,11 +16,11 @@ namespace MelsPlace.Model
 
         [JsonProperty]
         public string Description { get; set; }
+    }
 
+    public class ImageData : Image
+    {
         [JsonProperty]
-        public string Path { get; set; }
-
-        [JsonIgnore]
-        public Stream File { get; set; }
+        public string Data { get; set; }
     }
 }
