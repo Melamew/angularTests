@@ -13,17 +13,21 @@ app.controller('uploadController', ["$scope", "$http", "LocationService", "CONFI
         if (undefined == $scope.file) return;
         var reader = new FileReader();
         reader.onprogress = function (event) {
-            console.log("onprogress" + event.length);
+            console.log("onprogress " + event.total / 100 * event.loaded + "%");
         };
         reader.onerror = function(event) {
             console.log("onerror");
             alert("Could not read file");
             console.log(event.data);
+            $scope.canUpload = false;
+            $scope.$apply();
         }
-        reader.onload = function (event) {
+        reader.onload = function () {
             console.log("onload");
-            $scope.data = reader.result;
+            $scope.data = btoa(reader.result);
+            console.log($scope.data);
             $scope.canUpload = true;
+            $scope.$apply();
         }
         reader.readAsBinaryString($scope.file);
     }
@@ -35,13 +39,14 @@ app.controller('uploadController', ["$scope", "$http", "LocationService", "CONFI
         $http.post(uploadPath, JSON.stringify({
             Name: $scope.name,
             Description: $scope.description,
+            Type: $scope.file.name.split(".").pop(),
             Data: $scope.data
         }),
         {
             transformRequest: angular.identity,
             headers: { 'Content-Type': "application/json" }
         }).success(function() {
-            alert("File should now be there...");
+            LocationService.goBack();
         }).error(function() {
             alert("Something went wrong :c");
         });

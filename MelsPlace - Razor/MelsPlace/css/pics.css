@@ -7,11 +7,29 @@ div.imageGrid {
     position: relative;
 }
 
+@-moz-keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@-webkit-keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
 img.previewImage {
     width: 10%;
     height: auto;
     margin: 8px;
     cursor: zoom-in;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-name: fadeIn;
 }
 
 div.fullScreen {
@@ -23,6 +41,9 @@ div.fullScreen {
     left: 0;
     background: #FFFFFF;
     background: rgba(0,0,0,0.25);
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-name: fadeIn;
 }
 
 img.fullScreen {
@@ -34,18 +55,4 @@ img.fullScreen {
     position: relative;
     top: 50%;
     transform: translateY(-50%);
-}
-
-.fullScreen.ng-enter {
-    transition-duration: 5.25s;
-    transition-timing-function: linear;
-    transform: translateX(-100%);
-}
-
-.fullScreen.ng-enter.ng-enter-active {
-    transform: translateX(0%);
-}
-
-.fullScreen.ng-leave {
-    
 }

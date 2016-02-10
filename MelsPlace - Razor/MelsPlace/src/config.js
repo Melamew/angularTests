@@ -17,5 +17,5 @@ app.config(['$routeProvider', function ($routeProvider) {
 
 app.constant('CONFIG', {
     siteName: "Mel's Place",
-    imgServer: "localhost/MelsPlace"
+    imgServer: "localhost/MelsPlace.Api"
 });

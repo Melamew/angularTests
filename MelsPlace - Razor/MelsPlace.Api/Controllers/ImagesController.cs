@@ -2,11 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Net.Http.Formatting;
-using System.Net.Http.Headers;
-using System.Text;
 using System.Web.Http;
 using MelsPlace.Model;
 
@@ -14,46 +9,49 @@ namespace MelsPlace.Api.Controllers
 {
     public class ImagesController : ApiController
     {
-        private readonly List<ImageData> cachedImages =
-        new List<ImageData>();
-
+        private static readonly Dictionary<int, ImageData> CachedImages = new Dictionary<int, ImageData>();
+        private static int currentId = 0;
 #if DEBUG
-        public ImagesController()
+        static ImagesController()
         {
-            Console.WriteLine(Environment.CurrentDirectory);
-            cachedImages.Add(new ImageData
-            {
-                Description = "This is just a test image",
-                Name = "Image 1",
-            });
+            var image = LoadImageData(Path.Combine(AppDomain.CurrentDomain.RelativeSearchPath + "\\files\\image1.jpg"));
+            image.Description = "This is just a test image";
+            image.Name = "Image 1";
+            image.Id = currentId++;
+            CachedImages.Add(image.Id, image);
         }
 #endif
 
-        private static string LoadImageData(string path)
+        private static ImageData LoadImageData(string path)
         {
             if (!File.Exists(path))
-                return string.Empty;
-            var ext = Path.GetExtension(path);
-            var file = File.ReadAllBytes(path);
-            return $"data:image/{ext};base64," + Convert.ToBase64String(file);
+                return null;
+            return new ImageData
+            {
+                Type = Path.GetExtension(path),
+                Data = Convert.ToBase64String(File.ReadAllBytes(path))
+            };
         }
 
         // GET: api/Images
         public IEnumerable<Image> Get()
         {
-            return cachedImages;
+            return CachedImages.Values;
         }
 
         // GET: api/Images/5
         public ImageData Get(int id)
         {
-            return cachedImages.ElementAtOrDefault(id);
+            ImageData value;
+            return !CachedImages.TryGetValue(id, out value) ? null : value;
         }
 
         // POST: api/Images
-        public void Post([FromBody]Image value)
+        public void Post([FromBody]ImageData value)
         {
-            //Console.WriteLine(value);
+            if (null == value) return;
+            value.Id = currentId++;
+            CachedImages.Add(value.Id, value);
         }
 
         // PUT: api/Images/5

@@ -16,11 +16,17 @@ namespace MelsPlace.Model
 
         [JsonProperty]
         public string Description { get; set; }
+
+        [JsonProperty]
+        public int Id { get; set; }
     }
 
     public class ImageData : Image
     {
         [JsonProperty]
         public string Data { get; set; }
+
+        [JsonProperty]
+        public string Type { get; set; }
     }
 }

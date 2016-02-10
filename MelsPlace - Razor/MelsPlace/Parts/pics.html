@@ -9,9 +9,9 @@
          tabindex="0"
          class="mainView">
         <div class="imageGrid">
-            <div ng-repeat="image in images">
-                <img src="{{image.Data}}" class="previewImage"
-                     ng-click="displayImage(image)" />
+            <div ng-repeat="image in images" ng-animate="'fadeIn'" class="inline">
+                <img src="data:image/{{image.Type}};base64,{{image.Data}}" class="previewImage"
+                     ng-click="displayImage(image)"/>
             </div>
         </div>
         <div class="controls">
@@ -19,7 +19,7 @@
         </div>
     </div>
     <div class="fullScreen" ng-class="{hidden: doDisplayImage == false || !shownImage, visibile: doDisplayImage == true}" ng-click="hideImage()" ng-animate>
-        <img ng-class="{hidden: doDisplayImage == false || !shownImage, visibile: doDisplayImage == true}" ng-src="{{shownImage.Data}}" class="fullScreen"  ng-click="hideImage()" />
+        <img ng-class="{hidden: doDisplayImage == false || !shownImage, visibile: doDisplayImage == true}" src="data:image/{{shownImage.Type}};base64,{{shownImage.Data}}" class="fullScreen" ng-click="hideImage()" alt="{{shownImage.Description}}"/>
     </div>
 </body>
 </html>
