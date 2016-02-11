@@ -25,7 +25,6 @@ app.controller('uploadController', ["$scope", "$http", "LocationService", "CONFI
         reader.onload = function () {
             console.log("onload");
             $scope.data = btoa(reader.result);
-            console.log($scope.data);
             $scope.canUpload = true;
             $scope.$apply();
         }

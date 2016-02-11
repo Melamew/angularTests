@@ -1,25 +1,24 @@
 app.controller("picsController", [
     "$scope", "$http", "$q", "LocationService", "CONFIG", function($scope, $http, $q, LocationService, CONFIG) {
+        $scope.images = [];
         var apiPath = "http://" + CONFIG.imgServer + "/api/Images";
 
-        $http.get(apiPath).then(function successCallback(payload) {
-            $scope.images = payload;
-            console.log("Scope images: " + $scope.images.length);
-            var promises = [];
-            angular.forEach($scope.images, function (value) { promises.push($http.get(apiPath + "/" + value.Id)) });
-            $q.all(promises).then(function(imagePayload) {
-                var image = $scope.images.filter(function (value) { return value.Id === imagePayload.Id });
-                if (image.length !== 1) return;
-                image[0] = imagePayload;
+        $http.get(apiPath).success(function(payload) {
+            var images = payload;
+            console.log("Images: " + images.length);
+            images.forEach(function(value) {
+                console.log("Attempting to get image: " + value.Id);
+                $http.get(apiPath + "/" + value.Id).success(function(payload) { $scope.images.push(payload) });
             });
+            
         });
-
+        
         $scope.doDisplayImage = false;
 
         $scope.displayImage = function(image) {
             $scope.shownImage = image;
             $scope.doDisplayImage = true;
-            console.log("doDisplayImage: " + $scope.doDisplayImage.Name);
+            console.log("doDisplayImage: " + $scope.shownImage.Name);
         };
 
         $scope.hideImage = function() {

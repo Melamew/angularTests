@@ -36,14 +36,14 @@ namespace MelsPlace.Api.Controllers
         // GET: api/Images
         public IEnumerable<Image> Get()
         {
-            return CachedImages.Values;
+            return CachedImages.Values.Select(x => new Image { Description = x.Description, Id = x.Id, Name = x.Name });
         }
 
         // GET: api/Images/5
-        public ImageData Get(int id)
+        public IHttpActionResult Get(int id)
         {
             ImageData value;
-            return !CachedImages.TryGetValue(id, out value) ? null : value;
+            return Ok(!CachedImages.TryGetValue(id, out value) ? null : value);
         }
 
         // POST: api/Images
