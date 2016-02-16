@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
@@ -8,7 +9,7 @@ using System.Web.SessionState;
 
 namespace MelsPlace.Api
 {
-    public class Global : System.Web.HttpApplication
+    public class Global : HttpApplication
     {
 
         protected void Application_Start(object sender, EventArgs e)
@@ -19,7 +20,7 @@ namespace MelsPlace.Api
 
         protected void Session_Start(object sender, EventArgs e)
         {
-
+            Debug.WriteLine("Session Start");
         }
 
         protected void Application_BeginRequest(object sender, EventArgs e)
@@ -39,7 +40,7 @@ namespace MelsPlace.Api
 
         protected void Session_End(object sender, EventArgs e)
         {
-
+            Debug.WriteLine("Session End");
         }
 
         protected void Application_End(object sender, EventArgs e)

@@ -1,40 +1,41 @@
-<DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 </head>
 <body>
-    <div class="mainView">
-        <div>
-            <form>
-                <table>
-                    <tr>
-                        <td class="label">Name:</td>
-                        <td><input type="text" ng-model="name" class="span"/></td>
-                    </tr>
-                    <tr>
-                        <td class="label alignTop">Description:</td>
-                        <td><textarea ng-model="description"></textarea></td>
-                    </tr>
-                    <tr>
-                        <td class="label">Image:</td>
-                        <td>
-                            <div class="button">
-                                <span ng-class="{hidden: canUpload, visible: !canUpload}" class="uploadLabel">...</span>
-                                <span ng-class="{visible: canUpload, hidden: !canUpload}" class="uploadLabel truncate">{{fileName}}</span>
-                                <input type="file"
-                                       accept="image/*"
-                                       gallery-file="file"
-                                       file-name="fileName"
-                                       file-selected="fileSelected()"/>
-                            </div>
-                        </td>
-                    </tr>
-                </table>
-                <br/>
-                <input type="button" value="Cancel" ng-click="cancel()"/>
-                <input type="submit" value="Upload" ng-click="upload()" ng-disabled="!canUpload"/>
-            </form>
-        </div>
+<div class="mainView">
+    <div>
+        <form>
+            <table>
+                <tr>
+                    <td class="label">Name:</td>
+                    <td><input type="text" ng-model="name" class="span" required=""/></td>
+                </tr>
+                <tr>
+                    <td class="label alignTop">Description:</td>
+                    <td><textarea ng-model="description" required></textarea></td>
+                </tr>
+                <tr>
+                    <td class="label">Image:</td>
+                    <td>
+                        <div class="button">
+                            <span ng-class="{hidden: canUpload, visible: !canUpload}" class="uploadLabel">...</span>
+                            <span ng-class="{visible: canUpload, hidden: !canUpload}" class="uploadLabel truncate">{{fileName}}</span>
+                            <input type="file"
+                                   accept="image/*"
+                                   gallery-file="file"
+                                   file-name="fileName"
+                                   file-selected="fileSelected()"
+                                   required/>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <br/>
+            <input type="button" value="Cancel" ng-click="cancel()"/>
+            <input type="submit" value="Upload" ng-click="upload()"/>
+        </form>
     </div>
+</div>
 </body>
 </html>

@@ -13,7 +13,7 @@ app.controller('uploadController', ["$scope", "$http", "LocationService", "CONFI
         if (undefined == $scope.file) return;
         var reader = new FileReader();
         reader.onprogress = function (event) {
-            console.log("onprogress " + event.total / 100 * event.loaded + "%");
+            console.log("onprogress " + (event.total / event.loaded) * 100 + "%");
         };
         reader.onerror = function(event) {
             console.log("onerror");
@@ -30,9 +30,15 @@ app.controller('uploadController', ["$scope", "$http", "LocationService", "CONFI
         }
         reader.readAsBinaryString($scope.file);
     }
+
+    $scope.isValid = function() {
+        return ($scope.description != undefined && $scope.description.length > 0)
+        && ($scope.name != undefined && $scope.name.length > 0)
+        && (undefined != $scope.data);
+    }
     
     $scope.upload = function() {
-        if (undefined == $scope.file) return;
+        if (!$scope.isValid()) return;
 
         $scope.canUpload = false;
         $http.post(uploadPath, JSON.stringify({
